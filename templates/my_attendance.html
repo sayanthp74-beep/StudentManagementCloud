@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Attendance</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f6f9;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ccc;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .box {
+            padding: 15px 25px;
+            background: #eef2ff;
+            border-radius: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background: #333;
+            color: white;
+        }
+
+        .present {
+            color: green;
+            font-weight: bold;
+        }
+
+        .absent {
+            color: red;
+            font-weight: bold;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            background: #333;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>My Attendance</h1>
+
+    <div class="stats">
+
+        <div class="box">
+            <b>Total Days</b><br>
+            {{ total_days }}
+        </div>
+
+        <div class="box">
+            <b>Present</b><br>
+            {{ present_days }}
+        </div>
+
+        <div class="box">
+            <b>Attendance</b><br>
+            {{ percentage }}%
+        </div>
+
+    </div>
+
+    <table>
+
+        <tr>
+            <th>Date</th>
+            <th>Status</th>
+        </tr>
+
+        {% for record in attendance_records %}
+
+        <tr>
+            <td>{{ record[0] }}</td>
+
+            <td class="{% if record[1] == 'Present' %}present{% else %}absent{% endif %}">
+                {{ record[1] }}
+            </td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+    <a href="/">Back to Home</a>
+
+</div>
+
+</body>
+</html>

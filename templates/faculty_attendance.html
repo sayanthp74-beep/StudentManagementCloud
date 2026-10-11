@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Manage Attendance</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f7fb;
+        }
+
+        /* Navigation */
+
+        nav {
+            background: #1e3a8a;
+            padding: 18px 8%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            color: white;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .back {
+            color: white;
+            text-decoration: none;
+
+            border: 1px solid white;
+
+            padding: 8px 16px;
+
+            border-radius: 6px;
+        }
+
+        .back:hover {
+            background: white;
+            color: #1e3a8a;
+        }
+
+        /* Main container */
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+
+            margin: 50px auto;
+        }
+
+        h1 {
+            color: #1e3a8a;
+
+            margin-bottom: 10px;
+        }
+
+        .description {
+            color: #666;
+
+            margin-bottom: 30px;
+        }
+
+        /* Attendance box */
+
+        .attendance-box {
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 14px;
+
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.10);
+        }
+
+        /* Date section */
+
+        .date-section {
+            margin-bottom: 30px;
+
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .date-section label {
+            font-weight: bold;
+
+            color: #333;
+        }
+
+        .date-section input {
+            padding: 10px;
+
+            border: 1px solid #ccc;
+
+            border-radius: 6px;
+
+            font-size: 15px;
+        }
+
+        .load-btn {
+            padding: 10px 18px;
+
+            background: #1e3a8a;
+
+            color: white;
+
+            border: none;
+
+            border-radius: 6px;
+
+            cursor: pointer;
+        }
+
+        .load-btn:hover {
+            background: #162d6b;
+        }
+
+        /* Table */
+
+        table {
+            width: 100%;
+
+            border-collapse: collapse;
+
+            margin-top: 20px;
+        }
+
+        th {
+            background: #1e3a8a;
+
+            color: white;
+
+            padding: 15px;
+
+            text-align: left;
+        }
+
+        td {
+            padding: 15px;
+
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {
+            background: #f8faff;
+        }
+
+        /* Status */
+
+        .status-select {
+            padding: 8px 12px;
+
+            border: 1px solid #ccc;
+
+            border-radius: 6px;
+
+            font-size: 15px;
+        }
+
+        /* Save button */
+
+        .save-btn {
+            margin-top: 30px;
+
+            padding: 13px 25px;
+
+            background: #1e3a8a;
+
+            color: white;
+
+            border: none;
+
+            border-radius: 7px;
+
+            font-size: 16px;
+
+            cursor: pointer;
+        }
+
+        .save-btn:hover {
+            background: #162d6b;
+        }
+
+        .note {
+            margin-top: 20px;
+
+            color: #777;
+
+            font-size: 14px;
+        }
+
+        /* Message */
+
+        .select-message {
+            margin-top: 25px;
+
+            padding: 15px;
+
+            background: #f1f5ff;
+
+            border-radius: 8px;
+
+            color: #555;
+        }
+
+        /* Mobile */
+
+        @media (max-width: 700px) {
+
+            .container {
+                width: 95%;
+            }
+
+            .attendance-box {
+                padding: 20px;
+            }
+
+            .date-section {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            table {
+                font-size: 14px;
+            }
+
+            th,
+            td {
+                padding: 10px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <!-- Navigation -->
+
+    <nav>
+
+        <div class="logo">
+            Faculty Attendance
+        </div>
+
+        <a href="/faculty-dashboard" class="back">
+            ← Dashboard
+        </a>
+
+    </nav>
+
+
+    <!-- Main -->
+
+    <div class="container">
+
+        <h1>
+            Take / Edit Attendance
+        </h1>
+
+        <p class="description">
+            Select a date to take new attendance or edit existing attendance.
+        </p>
+
+
+        <div class="attendance-box">
+
+
+            <!-- Date Selection -->
+
+            <form method="GET" action="/faculty-attendance">
+
+                <div class="date-section">
+
+                    <label for="date">
+                        Attendance Date:
+                    </label>
+
+                    <input
+                        type="date"
+                        id="date"
+                        name="date"
+                        value="{{ selected_date or '' }}"
+                        required
+                    >
+
+                    <button
+                        type="submit"
+                        class="load-btn"
+                    >
+                        Load Attendance
+                    </button>
+
+                </div>
+
+            </form>
+
+
+            {% if selected_date %}
+
+
+            <!-- Attendance Form -->
+
+            <form
+                method="POST"
+                action="/faculty-attendance"
+            >
+
+                <!-- Hidden date -->
+
+                <input
+                    type="hidden"
+                    name="date"
+                    value="{{ selected_date }}"
+                >
+
+
+                <!-- Student Table -->
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Student ID
+                            </th>
+
+                            <th>
+                                Student Name
+                            </th>
+
+                            <th>
+                                Email
+                            </th>
+
+                            <th>
+                                Course
+                            </th>
+
+                            <th>
+                                Attendance
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        {% for student in students %}
+
+                        <tr>
+
+                            <td>
+                                {{ student[0] }}
+                            </td>
+
+                            <td>
+                                {{ student[1] }}
+                            </td>
+
+                            <td>
+                                {{ student[2] }}
+                            </td>
+
+                            <td>
+                                {{ student[3] }}
+                            </td>
+
+                            <td>
+
+                                <select
+                                    name="status_{{ student[0] }}"
+                                    class="status-select"
+                                    required
+                                >
+
+                                    <option
+                                        value="Present"
+                                        {% if attendance_data.get(student[0]) == "Present" %}
+                                        selected
+                                        {% endif %}
+                                    >
+                                        Present
+                                    </option>
+
+                                    <option
+                                        value="Absent"
+                                        {% if attendance_data.get(student[0]) == "Absent" %}
+                                        selected
+                                        {% endif %}
+                                    >
+                                        Absent
+                                    </option>
+
+                                </select>
+
+                            </td>
+
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+
+                <!-- Save -->
+
+                <button
+                    type="submit"
+                    class="save-btn"
+                >
+                    💾 Save / Update Attendance
+                </button>
+
+
+                <p class="note">
+
+                    If attendance already exists for this date,
+                    it will be updated instead of creating duplicate records.
+
+                </p>
+
+            </form>
+
+
+            {% else %}
+
+
+            <div class="select-message">
+
+                📅 Please select an attendance date and click
+                <strong>Load Attendance</strong>.
+
+            </div>
+
+
+            {% endif %}
+
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Profile</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f7fb;
+        }
+
+        nav {
+            background: #1e3a8a;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .back {
+            color: white;
+            text-decoration: none;
+            border: 1px solid white;
+            padding: 8px 16px;
+            border-radius: 6px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        .profile-card {
+            background: white;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-card h1 {
+            color: #1e3a8a;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .info {
+            padding: 15px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .info strong {
+            display: inline-block;
+            width: 120px;
+            color: #333;
+        }
+
+        .info span {
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+
+        <div class="logo">
+            Student Profile
+        </div>
+
+        <a href="/dashboard" class="back">
+            Dashboard
+        </a>
+
+    </nav>
+
+
+    <div class="container">
+
+        <div class="profile-card">
+
+            <h1>👤 My Profile</h1>
+
+            <div class="info">
+                <strong>Student ID:</strong>
+                <span>{{ student[0] }}</span>
+            </div>
+
+            <div class="info">
+                <strong>Name:</strong>
+                <span>{{ student[1] }}</span>
+            </div>
+
+            <div class="info">
+                <strong>Email:</strong>
+                <span>{{ student[2] }}</span>
+            </div>
+
+            <div class="info">
+                <strong>Course:</strong>
+                <span>{{ student[4] }}</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

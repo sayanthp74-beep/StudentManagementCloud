@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Management System</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 900px;
+            max-width: 95%;
+            background: white;
+            border-radius: 20px;
+            padding: 45px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #777;
+            margin-bottom: 35px;
+        }
+
+        .cards {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .card {
+            width: 350px;
+            padding: 30px;
+            border: 1px solid #ddd;
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .card h2 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .card p {
+            color: #777;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            color: white;
+            font-weight: bold;
+            margin: 5px;
+        }
+
+        .student-btn {
+            background: #667eea;
+        }
+
+        .student-btn:hover {
+            background: #5568d9;
+        }
+
+        .register-btn {
+            background: #28a745;
+        }
+
+        .register-btn:hover {
+            background: #218838;
+        }
+
+        .faculty-btn {
+            background: #e67e22;
+        }
+
+        .faculty-btn:hover {
+            background: #d35400;
+        }
+
+        .icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 750px) {
+            .cards {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Student Management System</h1>
+
+        <p class="subtitle">
+            Cloud-Based Student Management System
+        </p>
+
+        <div class="cards">
+
+            <!-- STUDENT -->
+            <div class="card">
+
+                <div class="icon">🎓</div>
+
+                <h2>Student</h2>
+
+                <p>
+                    Login to access your profile, attendance,
+                    marks and documents.
+                </p>
+
+                <a href="/login" class="btn student-btn">
+                    Student Login
+                </a>
+
+                <a href="/register" class="btn register-btn">
+                    Register
+                </a>
+
+            </div>
+
+
+            <!-- FACULTY -->
+            <div class="card">
+
+                <div class="icon">👨‍🏫</div>
+
+                <h2>Faculty</h2>
+
+                <p>
+                    Faculty members can manage and take
+                    student attendance.
+                </p>
+
+                <a href="/faculty-login" class="btn faculty-btn">
+                    Faculty Login
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Dashboard</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f7fb;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background: #1e3a8a;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logout {
+            color: white;
+            text-decoration: none;
+            border: 1px solid white;
+            padding: 8px 16px;
+            border-radius: 6px;
+        }
+
+        .logout:hover {
+            background: white;
+            color: #1e3a8a;
+        }
+
+        /* Main Container */
+        .container {
+            padding: 60px 5%;
+        }
+
+        /* Welcome Section */
+        .welcome {
+            margin-bottom: 40px;
+        }
+
+        .welcome h1 {
+            color: #1e3a8a;
+            font-size: 36px;
+            margin-bottom: 12px;
+        }
+
+        .welcome p {
+            color: #666;
+            font-size: 18px;
+        }
+
+        /* Cards */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 35px;
+            min-height: 370px;
+            border-radius: 14px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.10);
+
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card h2 {
+            color: #1e3a8a;
+            font-size: 26px;
+            margin-bottom: 25px;
+        }
+
+        .card p {
+            color: #666;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .card a {
+            margin-top: auto;
+            color: blue;
+            font-size: 18px;
+            text-decoration: underline;
+        }
+
+        .card a:hover {
+            color: #1e3a8a;
+        }
+
+        /* Tablet */
+        @media (max-width: 1100px) {
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+            .container {
+                padding: 40px 6%;
+            }
+
+            .welcome h1 {
+                font-size: 28px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+
+    <nav>
+
+        <div class="logo">
+            Student Dashboard
+        </div>
+
+        <a href="/logout" class="logout">
+            Logout
+        </a>
+
+    </nav>
+
+
+    <!-- Main Content -->
+
+    <div class="container">
+
+        <!-- Welcome -->
+
+        <div class="welcome">
+
+            <h1>
+                Welcome, {{ name }}! 👋
+            </h1>
+
+            <p>
+                You can check your academic details here.
+            </p>
+
+        </div>
+
+
+        <!-- Cards -->
+
+        <div class="cards">
+
+
+            <!-- Profile -->
+
+            <div class="card">
+
+                <h2>
+                    👤 Profile
+                </h2>
+
+                <p>
+                    View and manage your student profile.
+                </p>
+
+                <a href="/profile">
+                    View Profile
+                </a>
+
+            </div>
+
+
+            <!-- Attendance -->
+
+            <div class="card">
+
+                <h2>
+                    📊 Attendance
+                </h2>
+
+                <p>
+                    Track your daily attendance and view your attendance percentage.
+                </p>
+
+                <a href="/my_attendance">
+                    View Attendance
+                </a>
+
+            </div>
+
+
+            <!-- Marks -->
+
+            <div class="card">
+
+                <h2>
+                    📝 Marks
+                </h2>
+
+                <p>
+                    View your subject-wise examination marks.
+                </p>
+
+                <a href="/marks">
+                    View Marks
+                </a>
+
+            </div>
+
+
+            <!-- Documents -->
+
+            <div class="card">
+
+                <h2>
+                    📁 Documents
+                </h2>
+
+                <p>
+                    Upload and manage your academic documents.
+                </p>
+
+                <a href="/documents">
+                    View Documents
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Attendance Records</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f7fb;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 14px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.10);
+        }
+
+        h1 {
+            color: #1e3a8a;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .back {
+            display: inline-block;
+            background: #1e3a8a;
+            color: white;
+            text-decoration: none;
+            padding: 10px 18px;
+            border-radius: 6px;
+            margin-bottom: 25px;
+        }
+
+        .back:hover {
+            background: #162d6b;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: #1e3a8a;
+            color: white;
+            padding: 14px;
+            text-align: left;
+        }
+
+        td {
+            padding: 14px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {
+            background: #f5f7fb;
+        }
+
+        .present {
+            color: green;
+            font-weight: bold;
+        }
+
+        .absent {
+            color: red;
+            font-weight: bold;
+        }
+
+        .no-records {
+            text-align: center;
+            padding: 30px;
+            color: #777;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <a href="/faculty-dashboard" class="back">
+        ← Back to Dashboard
+    </a>
+
+    <h1>
+        📊 Attendance Records
+    </h1>
+
+    {% if records %}
+
+    <table>
+
+        <tr>
+            <th>Student Name</th>
+            <th>Email</th>
+            <th>Course</th>
+            <th>Date</th>
+            <th>Status</th>
+        </tr>
+
+        {% for record in records %}
+
+        <tr>
+
+            <td>
+                {{ record[0] }}
+            </td>
+
+            <td>
+                {{ record[1] }}
+            </td>
+
+            <td>
+                {{ record[2] }}
+            </td>
+
+            <td>
+                {{ record[3] }}
+            </td>
+
+            <td>
+
+                {% if record[4] == "Present" %}
+
+                    <span class="present">
+                        Present
+                    </span>
+
+                {% else %}
+
+                    <span class="absent">
+                        Absent
+                    </span>
+
+                {% endif %}
+
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+    {% else %}
+
+        <div class="no-records">
+            No attendance records found.
+        </div>
+
+    {% endif %}
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Attendance</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f7fb;
+        }
+
+        nav {
+            background: #1e3a8a;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .back {
+            color: white;
+            text-decoration: none;
+            border: 1px solid white;
+            padding: 8px 16px;
+            border-radius: 6px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #1e3a8a;
+            margin-bottom: 25px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 14px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background: #1e3a8a;
+            color: white;
+        }
+
+        .present {
+            color: green;
+            font-weight: bold;
+        }
+
+        .absent {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+
+        <div class="logo">
+            Student Attendance
+        </div>
+
+        <a href="/dashboard" class="back">
+            Dashboard
+        </a>
+
+    </nav>
+
+
+    <div class="container">
+
+        <div class="card">
+
+            <h1>📊 Attendance Records</h1>
+            <div style="margin-bottom: 25px; padding: 15px; background: #f1f5f9; border-radius: 8px;">
+    <strong>Total Classes:</strong> {{ total }} &nbsp;&nbsp;
+    <strong>Present:</strong> {{ present }} &nbsp;&nbsp;
+    <strong>Absent:</strong> {{ absent }} &nbsp;&nbsp;
+    <strong>Percentage:</strong> {{ percentage }}%
+</div>
+
+            <table>
+
+                <tr>
+                    <th>Date</th>
+                    <th>Status</th>
+                </tr>
+
+                {% for record in attendance %}
+
+                <tr>
+                    <td>{{ record[0] }}</td>
+
+                    <td>
+                        {% if record[1] == "Present" %}
+                            <span class="present">Present</span>
+                        {% else %}
+                            <span class="absent">Absent</span>
+                        {% endif %}
+                    </td>
+                </tr>
+
+                {% endfor %}
+
+            </table>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

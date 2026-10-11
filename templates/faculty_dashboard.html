@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Faculty Dashboard</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f7fb;
+        }
+
+        nav {
+            background: #1e3a8a;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logout {
+            color: white;
+            text-decoration: none;
+            border: 1px solid white;
+            padding: 8px 16px;
+            border-radius: 6px;
+        }
+
+        .logout:hover {
+            background: white;
+            color: #1e3a8a;
+        }
+
+        .container {
+            padding: 60px 8%;
+        }
+
+        .welcome {
+            margin-bottom: 40px;
+        }
+
+        .welcome h1 {
+            color: #1e3a8a;
+            font-size: 36px;
+            margin-bottom: 12px;
+        }
+
+        .welcome p {
+            color: #666;
+            font-size: 18px;
+        }
+
+        .card {
+            background: white;
+            padding: 35px;
+            max-width: 800px;
+            border-radius: 14px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.10);
+        }
+
+        .card h2 {
+            color: #1e3a8a;
+            font-size: 26px;
+            margin-bottom: 20px;
+        }
+
+        .card p {
+            color: #666;
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .card a {
+            display: inline-block;
+            background: #1e3a8a;
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        .card a:hover {
+            background: #162d6b;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <nav>
+
+        <div class="logo">
+            Faculty Dashboard
+        </div>
+
+        <a href="/logout" class="logout">
+            Logout
+        </a>
+
+    </nav>
+
+
+    <div class="container">
+
+        <div class="welcome">
+
+            <h1>
+                Welcome, {{ name }}! 👨‍🏫
+            </h1>
+
+            <p>
+                Manage student attendance from here.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h2>
+                📋 Attendance
+            </h2>
+
+            <p>
+                Take attendance for students and edit
+                previously recorded attendance.
+            </p>
+
+
+            <a href="/faculty-attendance">
+                Take / Edit Attendance
+            </a>
+
+
+            <a href="/faculty-students">
+                View Students
+            </a>
+
+
+            <a href="/faculty-attendance-records">
+                View Attendance Records
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
