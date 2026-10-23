@@ -1,0 +1,166 @@
+<html>
+<head>
+    <title>Booking - Explore India</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>🌍 Explore India</h1>
+        <p>Book Your Dream Trip</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a> |
+        <a href="destinations.html">Destinations</a> |
+        <a href="packages.html">Tour Packages</a> |
+        <a href="hotels.html">Hotels</a> |
+        <a href="tips.html">Travel Tips</a> |
+        <a href="gallery.html">Gallery</a> |
+        <a href="booking.html">Booking</a> |
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <hr>
+
+    <main>
+
+        <h2>Travel Booking Form</h2>
+
+        <p>
+            Fill in the form below to request a travel booking.
+        </p>
+
+        <form>
+
+            <fieldset>
+
+                <legend>Personal Information</legend>
+
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name"
+                       placeholder="Enter your name" required>
+
+                <br><br>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email"
+                       placeholder="Enter your email" required>
+
+                <br><br>
+
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone"
+                       placeholder="Enter phone number" required>
+
+                <br><br>
+
+            </fieldset>
+
+            <br>
+
+            <fieldset>
+
+                <legend>Trip Details</legend>
+
+                <label for="destination">Select Destination:</label>
+
+                <select id="destination" name="destination">
+
+                    <option value="">-- Select Destination --</option>
+                    <option value="kerala">Kerala</option>
+                    <option value="goa">Goa</option>
+                    <option value="kashmir">Kashmir</option>
+                    <option value="rajasthan">Rajasthan</option>
+                    <option value="tamilnadu">Tamil Nadu</option>
+                    <option value="agra">Agra</option>
+
+                </select>
+
+                <br><br>
+
+                <label for="package">Select Package:</label>
+
+                <select id="package" name="package">
+
+                    <option value="">-- Select Package --</option>
+                    <option value="kerala">Kerala Explorer</option>
+                    <option value="goa">Goa Beach Trip</option>
+                    <option value="kashmir">Kashmir Adventure</option>
+                    <option value="rajasthan">Royal Rajasthan</option>
+                    <option value="tamilnadu">Tamil Nadu Heritage</option>
+
+                </select>
+
+                <br><br>
+
+                <label for="date">Travel Date:</label>
+                <input type="date" id="date" name="date" required>
+
+                <br><br>
+
+                <label for="people">Number of People:</label>
+                <input type="number" id="people" name="people"
+                       min="1" max="20" required>
+
+                <br><br>
+
+                <label>Travel Type:</label>
+
+                <input type="radio" id="family" name="travel_type"
+                       value="family">
+                <label for="family">Family</label>
+
+                <input type="radio" id="friends" name="travel_type"
+                       value="friends">
+                <label for="friends">Friends</label>
+
+                <input type="radio" id="solo" name="travel_type"
+                       value="solo">
+                <label for="solo">Solo</label>
+
+                <br><br>
+
+            </fieldset>
+
+            <br>
+
+            <fieldset>
+
+                <legend>Additional Requirements</legend>
+
+                <label for="message">Special Requirements:</label>
+
+                <br><br>
+
+                <textarea id="message" name="message"
+                          rows="5" cols="40"
+                          placeholder="Enter your requirements"></textarea>
+
+                <br><br>
+
+                <input type="checkbox" id="terms" name="terms" required>
+                <label for="terms">
+                    I agree to the booking terms and conditions.
+                </label>
+
+            </fieldset>
+
+            <br>
+
+            <input type="submit" value="Submit Booking">
+            <input type="reset" value="Clear Form">
+
+        </form>
+
+    </main>
+
+    <hr>
+
+    <footer>
+        <p>&copy; 2026 Explore India. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,223 @@
+/* General Page Style */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4fbff;
+    color: #333;
+    line-height: 1.6;
+}
+
+
+/* Header */
+
+header {
+    background: linear-gradient(to right, #006994, #00a896);
+    color: white;
+    text-align: center;
+    padding: 35px 20px;
+}
+
+header h1 {
+    font-family: Georgia, serif;
+    font-size: 42px;
+    margin: 0;
+}
+
+header p {
+    font-size: 18px;
+    margin-top: 8px;
+}
+
+
+/* Navigation */
+
+nav {
+    background-color: #023047;
+    text-align: center;
+    padding: 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 8px;
+}
+
+nav a:hover {
+    color: #ffd166;
+}
+
+
+/* Main Content */
+
+main {
+    max-width: 1100px;
+    margin: auto;
+    padding: 30px;
+}
+
+main h2 {
+    color: #006994;
+    font-family: Georgia, serif;
+    font-size: 30px;
+}
+
+main h3 {
+    color: #008c95;
+    font-family: Georgia, serif;
+}
+
+
+/* Paragraphs */
+
+p {
+    font-size: 16px;
+}
+
+
+/* Images */
+
+img {
+    border-radius: 12px;
+    border: 4px solid white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    max-width: 100%;
+}
+
+
+/* Tables */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    margin: 20px 0;
+}
+
+th {
+    background-color: #006994;
+    color: white;
+    padding: 14px;
+}
+
+td {
+    padding: 12px;
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background-color: #eaf6f6;
+}
+
+tr:hover {
+    background-color: #d8f3dc;
+}
+
+
+/* Lists */
+
+ul, ol {
+    background-color: white;
+    padding: 20px 40px;
+    border-radius: 10px;
+}
+
+
+/* Forms */
+
+form {
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+}
+
+fieldset {
+    border: 2px solid #00a896;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+legend {
+    color: #006994;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+input,
+select,
+textarea {
+    padding: 10px;
+    border: 1px solid #aaa;
+    border-radius: 6px;
+    font-size: 15px;
+    margin-top: 5px;
+}
+
+input[type="submit"],
+input[type="reset"] {
+    background-color: #006994;
+    color: white;
+    border: none;
+    padding: 12px 22px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+    background-color: #00a896;
+}
+
+
+/* Links */
+
+main a {
+    display: inline-block;
+    background-color: #006994;
+    color: white;
+    padding: 10px 18px;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+main a:hover {
+    background-color: #00a896;
+}
+
+
+/* Footer */
+
+footer {
+    background-color: #023047;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+footer p {
+    margin: 0;
+}
+
+
+/* Horizontal Lines */
+
+hr {
+    border: none;
+    height: 2px;
+    background-color: #00a896;
+    margin: 25px 0;
+}
+
+
+/* Address */
+
+address {
+    background-color: white;
+    padding: 20px;
+    border-left: 5px solid #00a896;
+    font-style: normal;
+}
